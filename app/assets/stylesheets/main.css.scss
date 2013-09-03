@@ -1,0 +1,58 @@
+body {
+  background-color: #F1F4F7;
+  // background: url("graphy.png");
+  // @include image-2x("graphy_@2X.png", 80px, 160px);
+}
+h1 {
+  color: #F73D0A;
+}
+h2, h3 {
+  color: #2B3037;
+}
+h4 {
+  color: #00C572;
+}
+.main {
+  padding: 15px;
+  background: #FFFFFF;
+}
+.header {
+  background: #2B3037;
+  margin-top: 10px;
+  border-radius: 8px 8px 0px 0px;
+  padding: 10px;
+}
+.header h3 {
+  color: #DCE1E8;
+  margin: 0px;
+}
+
+html,
+body {
+  height: 100%;
+}
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 60px;
+}
+#footer {
+  background-color: #EFF2F5;
+}
+
+@media (max-width: 767px) {
+#footer {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+}

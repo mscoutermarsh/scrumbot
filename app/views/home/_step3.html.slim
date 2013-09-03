@@ -1,0 +1,20 @@
+#step3.col-md-6 ng-show="{step == 3}"
+  h3
+    ' Setup
+  button.btn-lg.btn-default
+    ' Connect Github
+  button.btn-lg.btn-default
+    ' Connect Google Calendar
+  = form_for(:user_settings, :url => registration_path(:user), html: {class: 'form-horizontal', role: 'form'}) do |f|
+    div.form-group
+      = f.label "Skip Weekends?", class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.check_box :weekends, class: 'form-control'
+    div.form-group
+      = f.label :time_zone, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.time_zone_select('time_zone', ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'})
+
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        input.button.btn-lg.btn-success type="submit" value="Sign up"

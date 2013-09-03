@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scrumlogs</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div id="wrap">
+      <%= render "layouts/navbar" %>
+      <div class="col-md-12 main">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+      <div id="push"></div>
+    </div>
+
+    <%= render "layouts/footer" %>
+
+  </div>
+</body>
+</html>
