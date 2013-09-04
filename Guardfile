@@ -1,3 +1,5 @@
+notification :growl
+
 guard 'puma' do
   watch('Gemfile.lock')
   watch(%r{^config|lib|api/.*})

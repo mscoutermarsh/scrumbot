@@ -62,6 +62,7 @@ group :development, :test do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'listen'
+  gem 'growl'
 end
 
 group :test do
