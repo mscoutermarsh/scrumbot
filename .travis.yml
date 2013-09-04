@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.0.0
+env:
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - bundle exec rake spec
+before_script:
+  - psql -c 'create database scrumlogs_test' -U postgres

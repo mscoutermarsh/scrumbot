@@ -3,7 +3,7 @@ class ApiKey < ActiveRecord::Base
   belongs_to :user
 
   def expired?
-   DateTime.now >= self.expires
+    DateTime.now >= expires_at
   end
 
   private
