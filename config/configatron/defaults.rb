@@ -3,7 +3,7 @@ configatron.emails.from = 'goodmorning@scrumlogs.com'
 
 configatron.emails.mandrill.domain = 'scrumlogs.com'
 configatron.emails.mandrill.user = ENV['MANDRILL_USER']
-configatron.emails.mandrill.pass = ENV['MANDRILL_PASS]
+configatron.emails.mandrill.pass = ENV['MANDRILL_PASS']
 
 
 # Integrations
