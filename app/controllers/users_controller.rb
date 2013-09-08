@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update(time_zone: params[:user][:time_zone])
+    if @user.update(params[:user])
       flash[:notice] = "Settings updated!"
       redirect_to settings_path
     else

@@ -1,12 +1,13 @@
 Scrumlogs::Application.routes.draw do
 
+  root :to => 'home#index'
 
   devise_for :users
-  get "home/index"
-  root :to => "home#index"
+  devise_scope :user do
+    get 'users/sign_out' => 'devise/sessions#destroy'
+  end
 
   resources :users
-  resources :user_settings
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

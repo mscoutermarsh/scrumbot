@@ -3,6 +3,7 @@
     ' by
     a href="https://twitter.com/mscccc"
       ' @mscccc
-    a href="./signout"
-      span.glyphicon.glyphicon-remove-circle
-      ' Logout
+    - if current_user
+      a href="./signout"
+        span.glyphicon.glyphicon-remove-circle
+        ' Logout

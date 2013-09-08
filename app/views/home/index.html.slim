@@ -1,7 +1,6 @@
 .row
   .container
-    = render 'step1'
-.row
-  = render 'step2'
-.row
-  = render 'step3'
+    - if current_user
+      = render 'step3'
+    - else
+      = render 'step1'

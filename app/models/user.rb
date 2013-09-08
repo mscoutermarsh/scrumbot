@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   store_accessor :settings
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password, presence: true
-  validates :name, presence: true
 
   has_one :api_key
 
