@@ -6,9 +6,9 @@
     .col-md-6
       .pull-right.unstyled.horizontal.btn-group
         - if current_user
-          = link_to user_path(current_user), {class: 'btn btn-default'}
+          = link_to edit_user_path(current_user), {class: 'btn btn-default'}
             = current_user.email
-          = link_to user_path(current_user), {class: 'btn btn-primary'}
+          = link_to edit_user_path(current_user), {class: 'btn btn-primary'}
             span.glyphicon.glyphicon-cog
         - else
           a.btn.btn-default href="/users/login"

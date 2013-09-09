@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   store_accessor :settings
 
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
 
   has_one :api_key
 
@@ -14,6 +13,6 @@ class User < ActiveRecord::Base
   private
 
     def create_api_key
-      api_key = ApiKey.create
+      ApiKey.create(user: self)
     end
 end

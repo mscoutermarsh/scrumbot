@@ -1,0 +1,31 @@
+#step3.col-md-6 ng-show="{step == 3}"
+  h3
+    ' Settings
+  = link_to "Change Password", edit_user_password_path, {class: 'btn btn-default'}
+  br
+  button.btn-lg.btn-default
+    ' Connect Github
+  br
+  button.btn-lg.btn-default
+    ' Connect Google Calendar
+  = form_for @user, html: {class: 'form-horizontal', role: 'form'} do |f|
+    - if @user.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@user.errors.count, "error")} prohibited this from being saved:"
+        ul
+          - @user.errors.full_messages.each do |message|
+            li = message
+    = f.fields_for :settings do |s|
+      div.form-group
+        = s.label "Skip Weekends?", class: 'col-lg-2 control-label'
+        .col-lg-10
+          = s.check_box :weekends, class: 'form-control'
+      div.form-group
+        = s.label 'time_zone', class: 'col-lg-2 control-label'
+        .col-lg-10
+          = s.time_zone_select('time_zone', ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'})
+
+    .form-group
+      .col-lg-offset-2.col-lg-10
+        = f.submit "Save", class: 'btn-lg btn-primary'
+          
