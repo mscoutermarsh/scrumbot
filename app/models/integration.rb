@@ -5,4 +5,6 @@ class Integration < ActiveRecord::Base
   validates :access_secret, presence: true
   validates_uniqueness_of :user_id, :scope => [:account_id]
 
+  belongs_to :user
+
 end

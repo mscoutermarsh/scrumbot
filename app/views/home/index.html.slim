@@ -1,6 +1,6 @@
 .row
   .container
-    - if current_user
+    - if user_signed_in?
       = render 'step3'
     - else
       = render 'step1'

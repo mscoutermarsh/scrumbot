@@ -1,16 +1,20 @@
 class ApiKey < ActiveRecord::Base
-  before_create :generate_access_token
+  before_validation :generate_access_token
   belongs_to :user
 
+  validates :access_token, presence: true, uniqueness: true
+  validates :access_token, length: { is: 32 }
+
   def expired?
-    DateTime.now >= expires_at
+    expires_at.nil? ? false : DateTime.now >= expires_at
   end
 
   private
     def generate_access_token
-      begin
-        key = SecureRandom.hex
-      end while self.class.exists?(access_token: key)
+      self.access_token = loop do
+        random_token = SecureRandom.hex
+        break random_token unless ApiKey.where(access_token: random_token).exists?
+      end
     end
   
 end

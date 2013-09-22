@@ -3,7 +3,7 @@
     ' by
     a href="https://twitter.com/mscccc"
       ' @mscccc
-    - if current_user
-      a href="./signout"
+    - if user_signed_in?
+      =link_to destroy_user_session_path, method: :delete
         span.glyphicon.glyphicon-remove-circle
         ' Logout
