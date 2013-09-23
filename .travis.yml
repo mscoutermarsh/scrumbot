@@ -5,7 +5,7 @@ env:
   - DB=postgresql
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate test
-  - bundle exec rspec spec
+  - bundle exec rspec spec --format doc
 before_script:
   - sudo /etc/init.d/postgresql stop
   - sudo cp /etc/postgresql/9.1/main/pg_hba.conf ./
