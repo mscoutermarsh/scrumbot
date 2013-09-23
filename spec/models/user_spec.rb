@@ -28,4 +28,11 @@ describe User do
     end
   end
 
+  describe '.skip_weekends' do
+    it 'converts string to boolean' do
+      @user.settings[:skip_weekends] = "false"
+      @user.save
+      expect(@user.skip_weekends).to be_false
+    end
+  end
 end
