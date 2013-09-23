@@ -57,6 +57,7 @@ end
 group :development, :test do
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'rspec-rails', '~> 2.0'
+  gem 'shoulda-matchers'
   gem 'guard'
   gem 'guard-puma'
   gem 'guard-spork'
@@ -71,7 +72,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-  gem 'shoulda-matchers'
 end
 
 gem 'puma'

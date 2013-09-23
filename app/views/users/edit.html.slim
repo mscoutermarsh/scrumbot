@@ -20,9 +20,9 @@
       .col-lg-10
         = f.check_box :skip_weekends, class: 'form-control'
     div.form-group
-      = f.label 'time_zone', class: 'col-lg-2 control-label'
+      = f.label :time_zone, class: 'col-lg-2 control-label'
       .col-lg-10
-        = f.time_zone_select('time_zone', ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'})
+        = f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'})
 
     .form-group
       .col-lg-offset-2.col-lg-10

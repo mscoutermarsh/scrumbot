@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   protected
     def user_params
-      params.require(:user).permit(:email, settings: [:weekends, :time_zone])
+      params.require(:user).permit(:email, :skip_weekends, :time_zone)
     end
 
     def correct_user
