@@ -18,7 +18,7 @@
     div.form-group
       = f.label "Skip Weekends?", class: 'col-lg-2 control-label'
       .col-lg-10
-        = f.check_box :skip_weekends, class: 'form-control'
+        = f.check_box :skip_weekends, {class: 'form-control'}, 'true', 'false'
     div.form-group
       = f.label :time_zone, class: 'col-lg-2 control-label'
       .col-lg-10

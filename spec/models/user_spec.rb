@@ -10,7 +10,7 @@ describe User do
     it { should validate_uniqueness_of :email }
     it { should validate_presence_of :password }
     it { should ensure_length_of(:password).is_at_least(8) }
-    it { should ensure_inclusion_of(:skip_weekends).in_array([true,false]) }
+    it { should ensure_inclusion_of(:skip_weekends).in_array(['true','false']) }
     it { should ensure_inclusion_of(:time_zone).in_array(ActiveSupport::TimeZone.all.map(&:name)) }
   end
 
@@ -28,11 +28,16 @@ describe User do
     end
   end
 
-  describe '.skip_weekends' do
-    it 'converts string to boolean' do
+  describe '.skip_weekends?' do
+    it 'return false' do
       @user.settings[:skip_weekends] = "false"
       @user.save
-      expect(@user.skip_weekends).to be_false
+      expect(@user.skip_weekends?).to be_false
+    end
+    it 'return true' do
+      @user.settings[:skip_weekends] = "true"
+      @user.save
+      expect(@user.skip_weekends?).to be_true
     end
   end
 end

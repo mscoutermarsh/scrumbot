@@ -4,7 +4,7 @@ FactoryGirl.define do
     last_name   'Ovechkin'
     sequence(:email){|n| "user#{n}@factory.com" }
     password    'c@pitals'
-    skip_weekends true
+    skip_weekends 'true'
     time_zone     'Eastern Time (US & Canada)'
   end
 end
