@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   store_accessor :settings, :skip_weekends, :time_zone
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, uniqueness: true
   validates :skip_weekends, inclusion: { in: ['true', 'false'], message: "must be true or false" }
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map { |m| m.name }, message: "is not a valid Time Zone"
 

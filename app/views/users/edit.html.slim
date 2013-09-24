@@ -8,13 +8,19 @@
   br
   button.btn-lg.btn-default
     ' Connect Google Calendar
+  br
   = form_for @user, html: {class: 'form-horizontal', role: 'form'} do |f|
     - if @user.errors.any?
-      #error_explanation
-        h2 = "#{pluralize(@user.errors.count, "error")} prohibited this from being saved:"
+      #error_explanation.alert.alert-danger
+        strong
+          ' Oops.
         ul
           - @user.errors.full_messages.each do |message|
             li = message
+    div.form-group
+      = f.label :email, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.email_field :email, class: 'form-control', placeholder: "Email"
     div.form-group
       = f.label "Skip Weekends?", class: 'col-lg-2 control-label'
       .col-lg-10

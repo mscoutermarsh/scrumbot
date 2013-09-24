@@ -9,6 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: "alert-#{name}" %>
+  <% end -%>
   <div class="container">
     <%= render "layouts/navbar" %>
     <div class="col-md-12">
