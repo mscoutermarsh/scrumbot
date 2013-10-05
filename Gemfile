@@ -64,6 +64,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'listen'
   gem 'growl'
+  gem 'fuubar'
 end
 
 group :test do
