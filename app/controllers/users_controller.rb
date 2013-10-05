@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     render 'edit'
   end
 
+  def connect_github
+    c_id = ENV['GITHUB_CLIENT_ID']
+    scope = 'repo'
+    redirect_to "https://github.com/login/oauth/authorize?client_id=#{c_id}&scope=#{scope}"
+  end
+
   protected
     def user_params
       params.require(:user).permit(:email, :skip_weekends, :time_zone)
