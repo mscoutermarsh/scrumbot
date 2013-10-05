@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
 
   def create_api_key!
     self.api_key = ApiKey.create
-    self.save
   end
 
   def set_default_settings!

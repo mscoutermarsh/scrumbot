@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  before(:each) do
-    @user = FactoryGirl.create(:user)
-  end 
 
   describe 'Validations' do
     it { should validate_presence_of :email }
@@ -21,14 +18,17 @@ describe User do
 
   describe 'Api Key' do
     it 'has API key on create' do
-      user = FactoryGirl.build(:user)
-      user.should_receive(:create_api_key!)
-      user.save
-      expect(@user.api_key).to_not be_nil
+      user = FactoryGirl.create(:user)
+      expect(user.api_key).to_not be_nil
     end
   end
 
   describe '.skip_weekends?' do
+
+    before(:each) do
+      @user = FactoryGirl.create(:user) 
+    end
+
     it 'return false' do
       @user.settings[:skip_weekends] = "false"
       @user.save

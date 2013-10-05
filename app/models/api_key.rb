@@ -9,6 +9,10 @@ class ApiKey < ActiveRecord::Base
     expires_at.nil? ? false : DateTime.now >= expires_at
   end
 
+  def expire!
+    update_attributes!(expires_at: DateTime.now)
+  end
+
   private
     def generate_access_token
       self.access_token = loop do
