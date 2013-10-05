@@ -9,5 +9,5 @@
           = link_to edit_user_path(current_user), {class: 'btn btn-primary'}
             span.glyphicon.glyphicon-cog
         - else
-          a.btn.btn-default href="/users/login"
+          = link_to new_user_session_path, {class: 'btn btn-default'}
             ' Login
