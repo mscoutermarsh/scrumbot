@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe ApiKey do
-  before(:each) do
-    @user = FactoryGirl.create(:user)
-  end
-
   describe 'Associations' do
     it { should belong_to :user }
   end
@@ -19,6 +15,10 @@ describe ApiKey do
   end
 
   describe '#expired?' do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+
     it 'returns true if expired' do
       @user.api_key.expires_at = Time.now - 1.hour
       expect(@user.api_key.expired?).to be_true
@@ -31,6 +31,10 @@ describe ApiKey do
   end
 
   describe '#expire!' do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+    
     it 'expires API key' do
       expect(@user.api_key.expired?).to be_false
       @user.api_key.expire!

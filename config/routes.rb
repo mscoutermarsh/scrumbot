@@ -4,6 +4,12 @@ Scrumlogs::Application.routes.draw do
   root :to => 'home#index'
 
   resources :users
+
+  get 'integrations/github' => 'integrations#github', as: :connect_github
+  get 'integrations/google' => 'integrations#google', as: :connect_google
+
+  get 'callbacks/github' => 'callbacks#github', as: :callback_github
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

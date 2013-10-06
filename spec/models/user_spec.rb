@@ -23,21 +23,43 @@ describe User do
     end
   end
 
-  describe '.skip_weekends?' do
+  describe '#skip_weekends?' do
 
     before(:each) do
       @user = FactoryGirl.create(:user) 
     end
 
-    it 'return false' do
+    it 'returns false' do
       @user.settings[:skip_weekends] = "false"
       @user.save
       expect(@user.skip_weekends?).to be_false
     end
-    it 'return true' do
+    it 'returns true' do
       @user.settings[:skip_weekends] = "true"
       @user.save
       expect(@user.skip_weekends?).to be_true
     end
+
+  end
+
+  describe '#create_or_update_github_account!' do
+    before(:all) do
+      @user = FactoryGirl.create(:user) 
+      account = FactoryGirl.create(:account, name: 'Github')
+      @user.create_or_update_github_account!('capitals','abc123')
+    end
+
+    it 'creates new github integration' do 
+      expect(@user.integrations.count).to eql 1
+    end
+
+    it 'sets correct account' do
+      expect(@user.integrations.first.account.name).to eql 'Github'
+    end
+
+    it 'sets correct token' do
+      expect(@user.integrations.first.access_secret).to eql 'abc123'
+    end
+
   end
 end

@@ -3,16 +3,18 @@ class CallbacksController < ApplicationController
   respond_to :json
 
   def github
-    access_token = github_api.get_token(params[:code])
+    github_api = GithubApi.init
+    oauth_token = github_api.get_token(params[:code])
 
-    username = github_api(access_token.token).users.get.login
+    github_api = GithubApi.init(oauth_token.token)
+    username = github_api.users.get.login
 
-    app = Application.find_by_description('Github')
-    account = current_user.accounts.find_or_create_by_application_id(app.id)
-    account.update_attributes(access_secret: access_token.token, active: true, username: username)
+    current_user.create_or_update_github_account!(username, oauth_token.token)
   
+    redirect_to root
+  end
 
-    redirect_to accounts_path
+  def google
   end
 
 end

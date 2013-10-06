@@ -19,7 +19,6 @@ gem 'omniauth-google-oauth2'
 gem 'github_api'
 gem 'multimap'
 gem 'rest-client'
-gem 'configatron', '3.0.0.rc1'
 gem 'zip'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',

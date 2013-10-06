@@ -22,3 +22,16 @@ class ApiKey < ActiveRecord::Base
     end
   
 end
+
+#     Column    |            Type             |                       Modifiers
+# --------------+-----------------------------+-------------------------------------------------------
+#  id           | integer                     | not null default nextval('api_keys_id_seq'::regclass)
+#  user_id      | integer                     |
+#  access_token | character varying(255)      |
+#  expires_at   | timestamp without time zone |
+#  created_at   | timestamp without time zone |
+#  updated_at   | timestamp without time zone |
+# Indexes:
+#     "api_keys_pkey" PRIMARY KEY, btree (id)
+#     "index_api_keys_on_access_token" btree (access_token)
+#     "index_api_keys_on_user_id" btree (user_id)
