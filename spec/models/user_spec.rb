@@ -8,6 +8,15 @@ describe User do
     it { should validate_presence_of :password }
     it { should ensure_length_of(:password).is_at_least(8) }
     it { should ensure_inclusion_of(:skip_weekends).in_array(['true','false']) }
+    
+    it { should allow_value(true).for(:active) }
+    it { should allow_value(false).for(:active) }
+    it { should_not allow_value(nil).for(:active) }
+
+    it { should allow_value(true).for(:admin) }
+    it { should allow_value(false).for(:admin) }
+    it { should_not allow_value(nil).for(:admin) }
+
     it { should ensure_inclusion_of(:time_zone).in_array(ActiveSupport::TimeZone.all.map(&:name)) }
   end
 
@@ -32,6 +41,18 @@ describe User do
     it 'returns false for default user' do
       user = FactoryGirl.build(:user)
       expect(user.admin?).to eql false 
+    end
+  end
+
+  describe '#active?' do
+    it 'returns true for default user' do
+      user = FactoryGirl.build(:user)
+      expect(user.active?).to eql true 
+    end
+
+    it 'returns false for inactive user' do
+      user = FactoryGirl.build(:user, active: false)
+      expect(user.active?).to eql false 
     end
   end
 
