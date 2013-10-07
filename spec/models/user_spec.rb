@@ -23,6 +23,18 @@ describe User do
     end
   end
 
+  describe '#admin?' do
+    it 'returns true for admin' do
+      user = FactoryGirl.build(:user, admin: true)
+      expect(user.admin?).to eql true 
+    end
+
+    it 'returns false for default user' do
+      user = FactoryGirl.build(:user)
+      expect(user.admin?).to eql false 
+    end
+  end
+
   describe '#skip_weekends?' do
 
     before(:each) do

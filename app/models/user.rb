@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     integration.update_attributes!(access_secret: token, username: username)
   end
 
+  def admin?
+    admin
+  end
+
   def create_api_key!
     self.api_key = ApiKey.create
   end

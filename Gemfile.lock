@@ -153,6 +153,9 @@ GEM
     guard-rspec (2.5.4)
       guard (>= 1.1)
       rspec (~> 2.11)
+    guard-sidekiq (0.0.11)
+      guard (>= 1.1)
+      sidekiq
     guard-spork (1.5.1)
       childprocess (>= 0.2.3)
       guard (>= 1.1)
@@ -345,6 +348,7 @@ DEPENDENCIES
   guard
   guard-puma
   guard-rspec
+  guard-sidekiq
   guard-spork
   jbuilder (~> 1.2)
   jquery-rails

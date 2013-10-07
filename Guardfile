@@ -28,3 +28,14 @@ group 'backend' do
     watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
   end
 end
+
+### Guard::Sidekiq
+#  available options:
+#  - :verbose
+#  - :queue (defaults to "default") can be an array
+#  - :concurrency (defaults to 1)
+#  - :timeout
+#  - :environment (corresponds to RAILS_ENV for the Sidekiq worker)
+guard 'sidekiq', :environment => 'development' do
+  watch(%r{^workers/(.+)\.rb$})
+end
