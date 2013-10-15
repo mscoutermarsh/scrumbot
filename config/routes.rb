@@ -4,6 +4,7 @@ Scrumlogs::Application.routes.draw do
   root :to => 'home#index'
 
   resources :users
+  resources :after_signup
 
   get 'integrations/github' => 'integrations#github', as: :connect_github
   get 'integrations/google' => 'integrations#google', as: :connect_google

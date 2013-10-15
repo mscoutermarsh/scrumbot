@@ -20,6 +20,7 @@ gem 'github_api'
 gem 'multimap'
 gem 'rest-client'
 gem 'zip'
+gem 'wicked'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
