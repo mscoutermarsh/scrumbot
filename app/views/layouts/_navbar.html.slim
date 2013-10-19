@@ -14,11 +14,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         li
-          = button_tag edit_user_path(current_user), {class: 'btn btn-default navbar-btn'}
-            = current_user.email
-        li    
-          = button_tag edit_user_path(current_user), {class: 'btn btn-primary navbar-btn'}
-            span.glyphicon.glyphicon-cog
+          = link_to current_user.email, edit_user_path(current_user)
       - else
         li
-          = button_tag "Login", new_user_session_path, {class: 'btn btn-default navbar-btn'}    
+          = link_to "Login", new_user_session_path   
