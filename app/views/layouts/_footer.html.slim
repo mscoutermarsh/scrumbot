@@ -1,9 +1,10 @@
-#footer
-  small
-    ' by
-    a href="https://twitter.com/mscccc"
-      ' @mscccc
-    - if user_signed_in?
-      =link_to destroy_user_session_path, method: :delete
-        span.glyphicon.glyphicon-remove-circle
-        ' Logout
+.container.footer
+  .row
+    small
+      ' by
+      a href="https://twitter.com/mscccc"
+        ' @mscccc
+      - if user_signed_in?
+        =link_to destroy_user_session_path, method: :delete
+          span.glyphicon.glyphicon-remove-circle
+          ' Logout
