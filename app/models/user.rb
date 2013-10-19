@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def set_default_settings!
-    self.skip_weekends = true if skip_weekends.nil?
+    self.skip_weekends = 'true' if skip_weekends.nil?
     self.time_zone ||= 'Eastern Time (US & Canada)'
   end
 

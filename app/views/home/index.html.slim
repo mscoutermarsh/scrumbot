@@ -1,6 +1,11 @@
 .row
   .container
-    - if user_signed_in?
-      = render 'welcome_back'
-    - else
-      = render 'get_started'
+    .col-md-12.text-centered
+      h1
+        ' scrumlogs
+      h2
+        ' a daily email of what got done yesterday
+      - if user_signed_in?
+        = render 'welcome_back'
+      - else
+        = render 'get_started'

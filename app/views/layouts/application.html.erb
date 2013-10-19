@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Scrumlogs</title>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
@@ -9,16 +9,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: "alert-#{name}" %>
-  <% end -%>
+  <%= render "layouts/navbar" %>
   <div class="container">
-    <%= render "layouts/navbar" %>
-    <div class="col-md-12">
-      <%= yield %>
-    </div>
+    <%= render "layouts/flash", flash: flash %>
 
+    <!-- content -->
+    <div class="col-md-12">
+       <%= yield %>
+    </div>
+    <!-- /content -->
+    <%= render "layouts/footer" %>
   </div>
-  <%= render "layouts/footer" %>
+  
 </body>
 </html>

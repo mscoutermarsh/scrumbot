@@ -1,10 +1,13 @@
 Scrumlogs::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
   root :to => 'home#index'
 
   resources :users
   resources :after_signup
+
+  get 'faq' => 'pages#faq'
 
   get 'integrations/github' => 'integrations#github', as: :connect_github
   get 'integrations/google' => 'integrations#google', as: :connect_google
