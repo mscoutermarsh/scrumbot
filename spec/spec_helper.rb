@@ -8,9 +8,9 @@ Spork.prefork do
   require 'rspec/autorun'
   require 'shoulda-matchers'
   require 'sidekiq/testing'
-
-  # require 'coveralls'
-  # Coveralls.wear!
+  require 'coveralls'
+  
+  Coveralls.wear!
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.

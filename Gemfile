@@ -21,7 +21,7 @@ gem 'multimap'
 gem 'rest-client'
 gem 'zip'
 gem 'wicked'
-# gem 'coveralls', require: false
+gem 'coveralls', require: false
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
