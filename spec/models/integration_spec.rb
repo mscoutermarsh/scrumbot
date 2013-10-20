@@ -12,4 +12,7 @@ describe Integration do
     it { should belong_to :user }
     it { should belong_to :account }
   end
+
+  describe 'Github' do
+  end
 end

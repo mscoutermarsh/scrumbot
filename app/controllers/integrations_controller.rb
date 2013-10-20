@@ -6,8 +6,15 @@ class IntegrationsController < ApplicationController
     redirect_to "https://github.com/login/oauth/authorize?client_id=#{c_id}&scope=repo"
   end
 
+  def check_github
+    
+  end
+
   def google
     #TODO
+  end
+
+  def check_google
   end
 
 end

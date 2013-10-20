@@ -7,6 +7,8 @@ class Integration < ActiveRecord::Base
   belongs_to :user
   belongs_to :account
 
+  include Integration::GHub
+
 end
 
 #     Column     |            Type             |                         Modifiers

@@ -54,6 +54,8 @@ GEM
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -98,6 +100,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    debug_inspector (0.0.2)
     debugger (1.6.1)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -348,6 +351,7 @@ PLATFORMS
 DEPENDENCIES
   anjlab-bootstrap-rails!
   better_errors
+  binding_of_caller
   capybara
   coffee-rails (~> 4.0.0)
   compass-rails

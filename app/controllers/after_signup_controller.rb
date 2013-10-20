@@ -9,6 +9,13 @@ class AfterSignupController < ApplicationController
     @user = current_user 
     @current_step = current_step_index + 1
     @total_steps = steps.count
+
+    case step
+    when :link_github
+      # check github auth
+    when :link_google
+      # check google auth
+    end
     render_wizard
   end
 

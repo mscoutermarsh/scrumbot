@@ -3,22 +3,27 @@ div.col-md-6
     ' Thanks for signing up!
   h4
     = render partial: "current_step"
-  = form_for @user, url: wizard_path, method: :put, html: {class: 'form-horizontal', role: 'form'} do |f|
-    - if @user.errors.any?
-      #error_explanation.alert.alert-danger
-        strong
-          ' Oops.
-        ul
-          - @user.errors.full_messages.each do |message|
-            li = message
-    div.form-group
-      = f.label "Skip Weekends?", class: 'col-lg-2 control-label'
-      .col-lg-10
-        = f.check_box :skip_weekends, {class: 'form-control'}, 'true', 'false'
-    div.form-group
-      = f.label :time_zone, class: 'col-lg-2 control-label'
-      .col-lg-10
-        = f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'})
-    .form-group
-      .col-lg-offset-2.col-lg-10
-        = f.submit "Continue", class: 'btn-lg btn-primary'
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title
+        ' Settings
+    .panel-body
+      = form_for @user, url: wizard_path, method: :put, html: {class: 'form-horizontal', role: 'form'} do |f|
+        - if @user.errors.any?
+          #error_explanation.alert.alert-danger
+            strong
+              ' Oops.
+            ul
+              - @user.errors.full_messages.each do |message|
+                li = message
+        div.form-group
+          = f.label "Skip Weekends?", class: 'col-lg-2 control-label'
+          .col-lg-10
+            = f.check_box :skip_weekends, {class: 'form-control'}, 'true', 'false'
+        div.form-group
+          = f.label :time_zone, class: 'col-lg-2 control-label'
+          .col-lg-10
+            = f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, {default: "Pacific Time (US & Canada)"}, {class: 'form-control'})
+        .form-group
+          .col-lg-offset-2.col-lg-10
+            = f.submit "Continue", class: 'btn-lg btn-primary'
