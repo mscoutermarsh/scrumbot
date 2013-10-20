@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  add_flash_types :danger, :success, :info
+
   def current_user?(user)
     user == current_user
   end

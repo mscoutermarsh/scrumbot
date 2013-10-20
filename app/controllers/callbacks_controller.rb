@@ -8,9 +8,15 @@ class CallbacksController < ApplicationController
 
     username = github.users.get.login
 
-    current_user.create_or_update_github_account!(username, github.oauth_token)
-  
-    redirect_to after_signup_path(:link_github)
+    integration = current_user.create_or_update_github_account!(username, github.oauth_token)
+    
+    if integration
+      redirect_to after_signup_path(:link_google),
+        success: "Github connected successfully!"
+    else
+      redirect_to after_signup_path(:link_github),
+        alert: "Unable to link your Github account!"
+    end
   end
 
   def google

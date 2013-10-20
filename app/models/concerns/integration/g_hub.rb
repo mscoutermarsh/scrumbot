@@ -4,7 +4,7 @@ module Integration::GHub
   extend ActiveSupport::Concern
 
   included do
-    scope :github, -> { where(account: Account.find_by_name('Github')) }
+    scope :github, -> { where(account: Account.find_by_name('Github')).first }
   end
 
   # can we connect to Github API with correct permissions?
