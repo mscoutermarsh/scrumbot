@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :account do
-    name "MyString"
+    sequence(:name){|n| "Account-#{n}" }
   end
 end

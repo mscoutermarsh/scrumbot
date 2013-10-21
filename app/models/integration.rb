@@ -7,7 +7,7 @@ class Integration < ActiveRecord::Base
   belongs_to :user
   belongs_to :account
 
-  include Integration::GHub
+  include GithubHelper
 
 end
 
