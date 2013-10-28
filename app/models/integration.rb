@@ -4,10 +4,13 @@ class Integration < ActiveRecord::Base
   validates :access_secret, presence: true
   validates_uniqueness_of :user_id, :scope => [:account_id]
 
+  attr_encrypted :access_secret, :access_token, key: :encryption_key
+
   belongs_to :user
   belongs_to :account
 
   include GithubHelper
+  include Encryption
 
 end
 

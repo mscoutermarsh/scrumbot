@@ -9,6 +9,7 @@ gem 'rails', '~> 4.0.0'
 gem 'pg'
 
 gem 'better_errors'
+gem 'attr_encrypted'
 gem 'devise'
 gem 'omniauth'
 gem 'slim-rails'
@@ -22,6 +23,7 @@ gem 'rest-client'
 gem 'zip'
 gem 'wicked'
 gem 'coveralls', require: false
+gem 'rails_12factor', group: :production
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
