@@ -23,9 +23,7 @@ module GithubHelper
 
   def github_login
     return false unless github?
-    Github.new oauth_token: access_secret
+    Github.new oauth_token: token
   end
 
-  module ClassMethods
-  end
 end

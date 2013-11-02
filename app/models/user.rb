@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   def create_or_update_github_account!(username, token)
     account = Account.find_by_name('Github')
     integration = integrations.find_or_create_by(account: account)
-    integration.update_attributes(access_secret: token, username: username)
+    integration.update_attributes(token: token, username: username)
   end
 
   def admin?

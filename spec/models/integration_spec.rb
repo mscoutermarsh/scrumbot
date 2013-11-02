@@ -2,10 +2,12 @@ require 'spec_helper'
 
 describe Integration do
 
+  it_behaves_like Encryptable
+
   describe 'Validations' do
     it { should validate_presence_of :user_id }
     it { should validate_presence_of :account_id }
-    it { should validate_presence_of :access_secret }
+    it { should validate_presence_of :token }
     it { should validate_uniqueness_of(:user_id).scoped_to(:account_id) }
   end
 
@@ -31,7 +33,7 @@ describe Integration do
 
     describe '#github_login' do
       it 'returns Github object with token set' do
-        expect(@integration.github_login.oauth_token).to eql @integration.access_secret
+        expect(@integration.github_login.oauth_token).to eql @integration.token
       end
     end
   end

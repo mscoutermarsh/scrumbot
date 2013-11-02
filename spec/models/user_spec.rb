@@ -91,7 +91,7 @@ describe User do
     end
 
     it 'sets correct token' do
-      expect(@user.integrations.first.access_secret).to eql 'abc123'
+      expect(@user.integrations.first.token).to eql 'abc123'
     end
 
   end
