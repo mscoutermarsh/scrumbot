@@ -276,6 +276,9 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rspec-sidekiq (0.5.1)
+      rspec (~> 2.0)
+      sidekiq (>= 2.4.0)
     ruby-hmac (0.4.0)
     ruby-progressbar (1.2.0)
     rubyzip (0.9.9)
@@ -389,8 +392,11 @@ DEPENDENCIES
   puma
   rails (~> 4.0.0)
   rails_12factor
+  redis
+  redis-namespace
   rest-client
   rspec-rails (~> 2.0)
+  rspec-sidekiq
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver

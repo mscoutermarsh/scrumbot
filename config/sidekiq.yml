@@ -1,0 +1,11 @@
+# Sample configuration file for Sidekiq.
+# Options here can still be overridden by cmd line args.
+#   sidekiq -C config.yml
+---
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
+:concurrency:  4
+:queues:
+  - [critical, 7]
+  - [default, 2]
+  - [email, 1]

@@ -8,6 +8,9 @@ gem 'rails', '~> 4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'redis'
+gem 'redis-namespace'
+
 gem 'better_errors'
 gem 'attr_encrypted'
 gem 'devise'
@@ -58,6 +61,7 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'rspec-sidekiq'
   gem 'binding_of_caller'
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'rspec-rails', '~> 2.0'

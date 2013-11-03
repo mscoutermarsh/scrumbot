@@ -9,10 +9,7 @@ module GithubHelper
 
   # can we connect to Github API with correct permissions?
   def github_valid?
-    return false unless github?
-
-    github_login.scope.list.include? "repo"
-
+    github_login.scopes.list.include? "repo"
   rescue Github::Error::GithubError
     return false
   end
@@ -22,7 +19,6 @@ module GithubHelper
   end
 
   def github_login
-    return false unless github?
     Github.new oauth_token: token
   end
 
