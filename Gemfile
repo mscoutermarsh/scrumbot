@@ -11,7 +11,7 @@ gem 'pg'
 gem 'redis'
 gem 'redis-namespace'
 
-gem 'better_errors'
+gem 'sidekiq'
 gem 'attr_encrypted'
 gem 'devise'
 gem 'omniauth'
@@ -61,6 +61,7 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'better_errors'
   gem 'rspec-sidekiq'
   gem 'binding_of_caller'
   gem 'spork-rails', :github => 'sporkrb/spork-rails'

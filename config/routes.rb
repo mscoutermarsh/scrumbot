@@ -15,6 +15,8 @@ Scrumlogs::Application.routes.draw do
   get 'callbacks/github' => 'callbacks#github', as: :callback_github
 
   require 'sidekiq/web'
+  require 'sidetiq/web'
+  
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
