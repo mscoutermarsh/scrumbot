@@ -19,21 +19,21 @@ class GithubCollector < DataCollector
   # github only returns 30 a time. So keep pulling events until past yesterday
   # this is recursive
   def github_events(page = 1)
-    github_events = []
+    all_events = []
 
     events = @github_api.activity.events.performed(@username, page: page)
 
-    return github_events if events.count == 0
+    return all_events if events.count == 0
 
     events.each do |e|
       if from_today_or_yesterday?(e)
-        github_events << e
+        all_events << e
       else
-        return github_events
+        return all_events
       end
     end
 
-    github_events = github_events | get_events(page+1)
+    all_events = all_events | github_events(page+1)
   end
 
   def pull_request_event(e)
