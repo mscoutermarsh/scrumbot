@@ -10,7 +10,7 @@ class DataCollector
   end
 
   def save_events(events)
-    key = "#{Date.today}-#{@user.id}-#{integration_name}"
+    key = "#{current_user_time.to_date}-#{@user.id}-#{integration_name}"
     $redis.set(key, events.to_json)
   end
 
