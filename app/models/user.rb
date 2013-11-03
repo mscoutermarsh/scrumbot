@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
   end
 end
 
+# psql scrumlogs_development
+#  -- describe table:
+# \d users
+
 #          Column         |            Type             |                     Modifiers
 # ------------------------+-----------------------------+----------------------------------------------------
 #  id                     | integer                     | not null default nextval('users_id_seq'::regclass)
@@ -62,6 +66,12 @@ end
 #  settings               | hstore                      |
 #  first_name             | character varying(255)      |
 #  last_name              | character varying(255)      |
+#  admin                  | boolean                     | default false
+#  active                 | boolean                     | default true
+#  time_zone              | character varying(255)      |
 # Indexes:
 #     "users_pkey" PRIMARY KEY, btree (id)
 #     "index_users_on_email" UNIQUE, btree (email)
+#     "index_users_on_reset_password_token" UNIQUE, btree (reset_password_token)
+#     "index_users_on_active" btree (active)
+#     "index_users_on_time_zone" btree (time_zone)
