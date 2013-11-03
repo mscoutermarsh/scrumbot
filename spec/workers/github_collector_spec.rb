@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GithubCollector, vcr: true do
+describe GithubCollector do
 
   it { should be_processed_in :critical }
   it { should be_retryable 1 }
@@ -22,8 +22,7 @@ describe GithubCollector, vcr: true do
 
   subject { GithubCollector.new }
 
-  context 'user has less than 30 events' do
-    use_vcr_cassette 'github/events_1_page'
+  context 'user has less than 30 events', vcr: { cassette_name: 'github/events_1_page' } do
 
     it 'saves results to redis' do
       subject.perform(@user.id)
@@ -32,8 +31,7 @@ describe GithubCollector, vcr: true do
 
   end
 
-  context 'user has more than 30 events' do
-    use_vcr_cassette "github/events_2_pages"
+  context 'user has more than 30 events', vcr: { cassette_name: 'github/events_2_pages' }  do
 
     it 'saves results to redis' do
       subject.perform(@user.id)
