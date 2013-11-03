@@ -78,7 +78,7 @@ describe User do
   describe '#create_or_update_github_account!' do
     before(:all) do
       @user = FactoryGirl.create(:user) 
-      account = FactoryGirl.create(:account, name: 'Github')
+      account = Account.find_by_name('Github')
       @user.create_or_update_github_account!('capitals','abc123')
     end
 

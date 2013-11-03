@@ -11,7 +11,7 @@ gem 'pg'
 gem 'redis'
 gem 'redis-namespace'
 
-gem 'sidekiq'
+gem 'sidetiq'
 gem 'attr_encrypted'
 gem 'devise'
 gem 'omniauth'
@@ -78,6 +78,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'timecop'
+  gem 'vcr'
+  gem 'fakeweb'
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'factory_girl_rails'
