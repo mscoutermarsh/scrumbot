@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.0.0'
+gem 'rails', '~> 4.0.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -16,7 +16,7 @@ gem 'attr_encrypted'
 gem 'devise'
 gem 'omniauth'
 gem 'slim-rails'
-gem 'fog', '~> 1.3.1'
+gem 'fog'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'omniauth-google-oauth2'
@@ -27,6 +27,7 @@ gem 'zip'
 gem 'wicked'
 gem 'coveralls', require: false
 gem 'rails_12factor', group: :production
+gem 'unf'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
@@ -61,13 +62,14 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'excon'
   gem 'better_errors'
   gem 'rspec-sidekiq'
   gem 'binding_of_caller'
   gem 'spork-rails', :github => 'sporkrb/spork-rails'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda-matchers'
-  gem 'guard'
+  gem 'guard', '>=2.1.0'
   gem 'guard-puma'
   gem 'guard-spork'
   gem 'guard-rspec'
@@ -80,7 +82,7 @@ end
 group :test do
   gem 'timecop'
   gem 'vcr'
-  gem 'fakeweb'
+  gem 'webmock'
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'factory_girl_rails'

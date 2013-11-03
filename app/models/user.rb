@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  store_accessor :settings, :skip_weekends, :time_zone
+  store_accessor :settings, :skip_weekends
 
   validates :email, uniqueness: true
   validates :skip_weekends, inclusion: { in: ['true', 'false'], message: "must be true or false" }
