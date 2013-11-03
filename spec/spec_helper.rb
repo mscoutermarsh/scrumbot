@@ -25,29 +25,9 @@ Spork.prefork do
       DatabaseCleaner.clean_with(:truncation)
     end
 
-    # config.before(:each) do
-    #   DatabaseCleaner.strategy = :transaction
-    # end
-
     config.before(:each, :js => true) do
       DatabaseCleaner.strategy = :truncation
     end
-
-    # config.before(:each) do
-    #   DatabaseCleaner.start
-    # end
-
-    # config.after(:each) do
-    #   DatabaseCleaner.clean
-    # end
-
-    # ## Mock Framework
-    #
-    # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-    #
-    # config.mock_with :mocha
-    # config.mock_with :flexmock
-    # config.mock_with :rr
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
