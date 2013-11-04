@@ -107,7 +107,7 @@ describe GithubCollector do
 
       it 'has a valid time' do
         expect(pull_request['time']).to_not be_nil
-        expect(DateTime.parse(pull_request['time'])).to_not raise_error
+        expect{ DateTime.parse(pull_request['time']) }.to_not raise_error
       end
 
     end
@@ -133,7 +133,7 @@ describe GithubCollector do
 
       it 'has a valid time' do
         expect(commit['time']).to_not be_nil
-        expect(DateTime.parse(commit['time'])).to_not raise_error
+        expect{ DateTime.parse(commit['time']) }.to_not raise_error
       end
 
     end
