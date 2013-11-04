@@ -39,8 +39,10 @@ class GithubCollector < DataCollector
   def pull_request_event(e)
     {
       type: 'Pull Request',
-      description: e.payload.pull_request.title,
+      action: e.payload.action,
+      title: e.payload.pull_request.title,
       link: e.payload.pull_request.html_url,
+      body: e.payload.pull_request.body,
       repo_name: e.repo.name,
       time: DateTime.parse(e.created_at)
     }
