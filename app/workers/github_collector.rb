@@ -3,8 +3,8 @@
 class GithubCollector < DataCollector
 
   def collect_events
-    @github_api = @user.integrations.github.github_login
-    @username = @user.integrations.github.username
+    @github_api = integration.github_login
+    @username = integration.username
 
     processed_events = []
     github_events.each do |e|
@@ -79,11 +79,11 @@ class GithubCollector < DataCollector
   def from_today_or_yesterday?(event)
     event_time = DateTime.parse(event.created_at).in_time_zone(@user.time_zone)
 
-    (current_user_time.to_date - 1.day) <= event_time.to_date
+    (@user.current_time.to_date - 1.day) <= event_time.to_date
   end
 
-  def integration_name
-    'Github'
+  def integration
+    @user.integrations.github
   end
 
 end

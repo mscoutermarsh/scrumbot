@@ -13,9 +13,9 @@ describe DataCollector do
     end
   end
 
-  describe '#integration_name' do
+  describe '#integration' do
     it 'raises error if not overridden' do
-      expect{ data_collector.integration_name }.to raise_error
+      expect{ data_collector.integration }.to raise_error
     end
   end
   

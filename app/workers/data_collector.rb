@@ -10,7 +10,7 @@ class DataCollector
   end
 
   def save_events(events)
-    key = "#{current_user_time.to_date}-#{@user.id}-#{integration_name}"
+    key = "#{@user.current_time.to_date}-#{@user.id}-#{integration.account.name}"
     $redis.set(key, events.to_json)
   end
 
@@ -18,11 +18,7 @@ class DataCollector
     raise 'Must override collect_events'
   end
 
-  def integration_name
-    raise 'Must override integration name'
-  end
-
-  def current_user_time
-    Time.now.in_time_zone(@user.time_zone)
+  def integration
+    raise 'Must override integration'
   end
 end

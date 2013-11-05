@@ -12,6 +12,11 @@ class Integration < ActiveRecord::Base
   include GithubHelper
   include Encryptable
 
+
+  def redis_redis_save_key
+    "#{user.current_time.to_date}-#{user.id}-#{account.name}"
+  end
+
 end
 
 #     Column     |            Type             |                         Modifiers

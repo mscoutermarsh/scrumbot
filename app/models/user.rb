@@ -24,6 +24,17 @@ class User < ActiveRecord::Base
     integration.update_attributes(token: token, username: username)
   end
 
+  def todays_events
+    user.integrations.each do |integration|
+      key = "#{current_time.to_date}-#{self.id}-#{integration.account.name}"
+      events["#{integration.account.name}"] = $redis.get(key) if $redis.get(key)
+    end
+  end
+
+  def current_time
+    Time.now.in_time_zone(time_zone)
+  end
+
   def admin?
     admin
   end
