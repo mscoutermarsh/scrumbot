@@ -11,7 +11,7 @@ describe GithubCollector do
   end
 
   before(:each) do
-    $redis.flushdb
+    Redis.current.flushdb
     @user = FactoryGirl.create(:user)
     @integration = FactoryGirl.create(:integration, 
                                       user: @user,
@@ -24,7 +24,7 @@ describe GithubCollector do
 
     subject(:events) do
       GithubCollector.new.perform(@user.id)
-      JSON.parse($redis.get("2013-11-03-#{@user.id}-Github"))
+      JSON.parse(@user.integrations.github.todays_events)
     end
 
     describe 'result' do
@@ -51,7 +51,7 @@ describe GithubCollector do
 
     subject(:events) do
       GithubCollector.new.perform(@user.id)
-      JSON.parse($redis.get("2013-11-03-#{@user.id}-Github"))
+      JSON.parse(@user.integrations.github.todays_events)
     end
 
     describe 'result' do

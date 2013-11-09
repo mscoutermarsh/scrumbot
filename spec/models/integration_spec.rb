@@ -16,18 +16,6 @@ describe Integration do
     it { should belong_to :account }
   end
 
-  describe '#redis_save_key' do
-    before(:each) do
-      @integration = FactoryGirl.build(:integration)
-      @integration.account = Account.find_by_name("Github")
-      @user = @integration.user
-    end
-
-    it 'returns correct save key' do
-      expect(@integration.redis_save_key).to eql "#{@user.current_time.to_date}-#{@user.id}-Github"
-    end
-  end
-
   describe 'Github' do
     before(:each) do
       @integration = FactoryGirl.build(:integration)

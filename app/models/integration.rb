@@ -13,8 +13,12 @@ class Integration < ActiveRecord::Base
   include Encryptable
 
 
-  def redis_save_key
-    "#{user.current_time.to_date}-#{user.id}-#{account.name}"
+  def todays_events
+    rdb[user.current_time.to_date].get
+  end
+
+  def todays_events=(events)
+    rdb[user.current_time.to_date].set events
   end
 
 end

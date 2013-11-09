@@ -9,7 +9,7 @@ gem 'rails', '~> 4.0.1'
 gem 'pg'
 
 gem 'redis'
-gem 'redis-namespace'
+gem 'nest'
 
 gem 'sidetiq'
 gem 'attr_encrypted'

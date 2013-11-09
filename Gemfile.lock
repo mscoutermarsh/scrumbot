@@ -208,6 +208,8 @@ GEM
     multi_test (0.0.2)
     multimap (1.1.2)
     multipart-post (1.2.0)
+    nest (1.1.2)
+      redis
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
@@ -411,6 +413,7 @@ DEPENDENCIES
   jquery-rails
   listen
   multimap
+  nest
   omniauth
   omniauth-google-oauth2
   pg
@@ -418,7 +421,6 @@ DEPENDENCIES
   rails (~> 4.0.1)
   rails_12factor
   redis
-  redis-namespace
   rest-client
   rspec-rails (~> 2.0)
   rspec-sidekiq
