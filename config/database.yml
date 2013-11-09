@@ -1,6 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: scrumlogs_development
   pool: 5
   username: postgres
@@ -8,6 +9,7 @@ development:
 
 test:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: scrumlogs_test
   pool: 5
