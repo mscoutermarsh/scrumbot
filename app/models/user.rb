@@ -26,8 +26,7 @@ class User < ActiveRecord::Base
 
   def todays_events
     user.integrations.each do |integration|
-      key = "#{current_time.to_date}-#{self.id}-#{integration.account.name}"
-      events["#{integration.account.name}"] = $redis.get(key) if $redis.get(key)
+      events["#{integration.account.name}"] = integration.todays_events if integration.todays_events
     end
   end
 

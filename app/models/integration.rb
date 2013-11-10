@@ -19,6 +19,7 @@ class Integration < ActiveRecord::Base
 
   def todays_events=(events)
     rdb[user.current_time.to_date].set events
+    rdb[user.current_time.to_date].expire 86400 # delete after 1 day
   end
 
 end
