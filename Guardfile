@@ -1,6 +1,6 @@
 notification :growl
 
-guard 'puma' do
+guard 'puma', config: 'config/puma.rb'  do
   watch('Gemfile.lock')
   watch(%r{^config|lib|api/.*})
 end
@@ -36,6 +36,6 @@ end
 #  - :concurrency (defaults to 1)
 #  - :timeout
 #  - :environment (corresponds to RAILS_ENV for the Sidekiq worker)
-guard 'sidekiq', :environment => 'development' do
+guard 'sidekiq', environment: 'development', config: 'config/sidekiq.yml' do
   watch(%r{^workers/(.+)\.rb$})
 end
