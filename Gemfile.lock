@@ -288,6 +288,8 @@ GEM
       redis (>= 2.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rollbar (0.11.7)
+      multi_json (~> 1.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -439,6 +441,7 @@ DEPENDENCIES
   redis
   redis-rails
   rest-client
+  rollbar
   rspec-rails (~> 2.0)
   rspec-sidekiq
   sass-rails (~> 4.0.0)

@@ -12,6 +12,8 @@ gem 'redis'
 gem 'nest'
 gem 'redis-rails'
 
+gem 'rollbar'
+
 gem 'sidetiq'
 gem 'attr_encrypted'
 gem 'devise'
