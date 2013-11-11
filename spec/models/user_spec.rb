@@ -93,6 +93,29 @@ describe User do
     it 'sets correct token' do
       expect(@user.integrations.first.token).to eql 'abc123'
     end
+  end
+
+  describe '#unsubscribe_token' do
+    before(:each) do
+      @user = FactoryGirl.build(:user, id: 1) 
+    end
+
+    it 'returns a token' do
+      expect(@user.unsubscribe_token).to_not be_nil
+      expect(@user.unsubscribe_token.length).to be > 10
+    end
+  end
+
+  describe '#find_by_unsubscribe_token' do
+    before(:each) do
+      @user = FactoryGirl.create(:user) 
+      @token = @user.unsubscribe_token
+    end
+
+    it 'returns correct user' do
+      expect(User.find_by_unsubscribe_token(@token)).to eql @user
+    end
 
   end
+
 end

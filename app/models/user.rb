@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
 
   store_accessor :settings, :skip_weekends
 
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_one :api_key
   has_many :integrations
-  
+
   after_initialize :set_default_settings!
   after_create :create_api_key!
 
@@ -53,6 +53,20 @@ class User < ActiveRecord::Base
 
   def skip_weekends?
     skip_weekends == "true" ? true : false
+  end
+
+  def unsubscribe_token
+    User.verifier.generate(self.id)
+  end
+
+  def self.verifier
+    ActiveSupport::MessageVerifier.new(Devise.secret_key, serializer: YAML)
+  end
+
+  def self.find_by_unsubscribe_token(token)
+    User.find_by_id(verifier.verify(token))
+  rescue ActiveSupport::MessageVerifier::InvalidSignature
+    nil
   end
 end
 

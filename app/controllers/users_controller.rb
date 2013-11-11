@@ -18,6 +18,15 @@ class UsersController < ApplicationController
     render 'edit'
   end
 
+  def unsubscribe
+    if user = User.find_by_unsubscribe_token(params[:token])
+      user.update_attribute :active, false
+      render text: "You have been unsubscribed"
+    else
+      render text: "Invalid link"
+    end
+  end
+
   protected
     def user_params
       params.require(:user).permit(:email, :skip_weekends, :time_zone)
