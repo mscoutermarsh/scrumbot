@@ -9,3 +9,4 @@
   - [critical, 7]
   - [default, 2]
   - [email, 1]
+  - [rollbar, 1]
