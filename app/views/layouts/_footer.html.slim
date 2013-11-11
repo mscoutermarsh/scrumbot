@@ -1,10 +1,16 @@
 .container.footer
   .row
     small
-      ' by
       a href="https://twitter.com/mscccc"
         ' @mscccc
+      ' |
+      a href="https://github.com/mscoutermarsh/scrumlogs"
+        ' Github
       - if user_signed_in?
+        ' |
         =link_to destroy_user_session_path, method: :delete
           span.glyphicon.glyphicon-remove-circle
           ' Logout
+    br
+    a href="http://www.cloud66.com"
+      img src="https://s3.amazonaws.com/cdn.cloud66.com/images/powered-by-cloud66.png" title="Powered by Cloud 66"

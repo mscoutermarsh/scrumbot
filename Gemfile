@@ -10,6 +10,7 @@ gem 'pg'
 
 gem 'redis'
 gem 'nest'
+gem 'redis-rails'
 
 gem 'sidetiq'
 gem 'attr_encrypted'

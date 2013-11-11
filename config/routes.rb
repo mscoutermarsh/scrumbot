@@ -9,10 +9,10 @@ Scrumlogs::Application.routes.draw do
 
   get 'faq' => 'pages#faq'
 
-  get 'integrations/github' => 'integrations#github', as: :connect_github
-  get 'integrations/google' => 'integrations#google', as: :connect_google
+  get 'auth/github' => 'integrations#github', as: :connect_github
+  get 'auth/google' => 'integrations#google', as: :connect_google
 
-  get 'callbacks/github' => 'callbacks#github', as: :callback_github
+  get 'auth/github/callback' => 'callbacks#github', as: :callback_github
 
   require 'sidekiq/web'
   require 'sidetiq/web'
