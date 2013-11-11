@@ -8,4 +8,4 @@ end
 REDIS = Redis.current
 
 # set session store to use redis
-Scrumlogs::Application.config.session_store :redis_store, ENV["REDISTOGO_URL"]
+Scrumlogs::Application.config.session_store :redis_store, :servers => ENV["REDISTOGO_URL"], key: '_scrumlogs_session'
