@@ -239,6 +239,8 @@ GEM
     puma (2.6.0)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-protection (1.5.1)
       rack
     rack-test (0.6.2)
@@ -279,6 +281,9 @@ GEM
       redis (~> 3.0.4)
     redis-rack (1.5.0)
       rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rack-cache (1.2.2)
+      rack-cache (~> 1.2)
       redis-store (~> 1.1.0)
     redis-rails (4.0.0)
       redis-actionpack (~> 4)
@@ -439,6 +444,7 @@ DEPENDENCIES
   rails (~> 4.0.1)
   rails_12factor
   redis
+  redis-rack-cache
   redis-rails
   rest-client
   rollbar

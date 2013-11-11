@@ -11,6 +11,7 @@ gem 'pg'
 gem 'redis'
 gem 'nest'
 gem 'redis-rails'
+gem 'redis-rack-cache'
 
 gem 'rollbar'
 
