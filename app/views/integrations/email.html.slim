@@ -1,0 +1,23 @@
+#span6
+  h2.title-divider
+    small 
+      | What you got done.
+  h4 
+    = "Github (#{@events.count})"
+  table.table.bordered.table-hover
+      - @events.each do |event|
+        tr
+          td 
+            = event['type']
+          - if event['type'] == 'Pull Request'
+            td
+              = "<strong>#{event['action']}</strong> #{event['title']}".html_safe
+          - else
+            td
+              = event['title']
+          td 
+            = event['title']
+          td
+            = event['repo_name']
+          td
+            = DateTime.parse(event['time']).in_time_zone(current_user.time_zone).strftime("%l:%M %p")

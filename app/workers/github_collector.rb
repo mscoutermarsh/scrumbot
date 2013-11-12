@@ -51,7 +51,7 @@ class GithubCollector < DataCollector
   def commit_event(e, commit)
     {
       type: 'Commit',
-      description: commit.message,
+      title: commit.message,
       link: commit.url,
       repo_name: e.repo.name,
       time: DateTime.parse(e.created_at)

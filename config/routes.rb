@@ -7,6 +7,8 @@ Scrumlogs::Application.routes.draw do
   resources :users
   resources :after_signup
 
+  get 'email' => 'integrations#email'
+
   get 'faq' => 'pages#faq'
 
   get 'auth/github' => 'integrations#github', as: :connect_github

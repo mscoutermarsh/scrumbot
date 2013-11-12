@@ -11,7 +11,7 @@ describe GithubCollector do
   end
 
   before(:each) do
-    Redis.current.flushdb
+    # Redis.current.flushdb
     @user = FactoryGirl.create(:user)
     @integration = FactoryGirl.create(:integration, 
                                       user: @user,
