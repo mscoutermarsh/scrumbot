@@ -3,8 +3,8 @@ class DailyEmail
   include Sidekiq::Worker
   sidekiq_options retry: 1, queue: :email
 
-  def perform
-    MorningMailer.delay.scrum_update(@user.id)
+  def perform(user_id)
+    MorningMailer.delay.scrum_update(user_id)
   end
 
 end

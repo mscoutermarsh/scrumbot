@@ -120,7 +120,7 @@ describe GithubCollector do
       end
 
       it 'has a description' do
-        expect(commit['description']).to_not be_nil
+        expect(commit['title']).to_not be_nil
       end
 
       it 'has a link' do
