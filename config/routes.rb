@@ -14,6 +14,8 @@ Scrumlogs::Application.routes.draw do
 
   get 'auth/github/callback' => 'callbacks#github', as: :callback_github
 
+  get '/no_more_emails/:token' => 'users#unsubscribe', as: 'unsubscribe'
+
   require 'sidekiq/web'
   require 'sidetiq/web'
   

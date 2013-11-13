@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, except: :new
+  before_filter :authenticate_user!, except: [:new, :unsubscribe]
   before_action :correct_user, only: [:edit, :update, :show]
 
   def new
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def unsubscribe
     if user = User.find_by_unsubscribe_token(params[:token])
       user.update_attribute :active, false
-      render text: "You have been unsubscribed"
+      render text: "You've been unsubscribed."
     else
       render text: "Invalid link"
     end

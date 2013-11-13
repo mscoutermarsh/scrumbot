@@ -1,5 +1,6 @@
 class MorningMailer < ActionMailer::Base
   default from: "goodmorning@scrumlogs.com"
+  layout 'email'
    
   def scrum_update(user_id)
     @user = User.find(user_id)

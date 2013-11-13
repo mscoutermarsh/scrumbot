@@ -6,7 +6,7 @@ class DataCollector
 
   def perform(user_id)
     @user = User.find(user_id)
-    save_events(collect_events)
+    save_events(collect_events) unless collect_events.empty?
   end
 
   def save_events(events)

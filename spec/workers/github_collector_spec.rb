@@ -11,7 +11,6 @@ describe GithubCollector do
   end
 
   before(:each) do
-    # Redis.current.flushdb
     @user = FactoryGirl.create(:user)
     @integration = FactoryGirl.create(:integration, 
                                       user: @user,
@@ -20,7 +19,7 @@ describe GithubCollector do
                                       username: 'mscoutermarsh')
   end
 
-  context 'user has less than 30 events', vcr: { cassette_name: 'github/events_1_page' } do
+  context 'user has less than 30 events', vcr: { cassette_name: 'github/events_1_page', allow_playback_repeats: true } do
 
     subject(:events) do
       GithubCollector.new.perform(@user.id)
@@ -47,7 +46,7 @@ describe GithubCollector do
 
   end
 
-  context 'user has more than 30 events', vcr: { cassette_name: 'github/events_2_pages' }  do
+  context 'user has more than 30 events', vcr: { cassette_name: 'github/events_2_pages', allow_playback_repeats: true }  do
 
     subject(:events) do
       GithubCollector.new.perform(@user.id)
