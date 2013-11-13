@@ -3,10 +3,11 @@
     h3
       ' Settings
     = link_to "Change Password", edit_user_registration_path, {class: 'btn btn-default'}
+    / br
+    / = link_to "Connect Github", connect_github_path, {class: 'btn btn-lg btn-default' }
+    / br
+    / = link_to "Connect Google", connect_google_path, {class: 'btn btn-lg btn-default' }
     br
-    = link_to "Connect Github", connect_github_path, {class: 'btn btn-lg btn-default' }
-    br
-    = link_to "Connect Google", connect_google_path, {class: 'btn btn-lg btn-default' }
     br
     = form_for @user, html: {class: 'form-horizontal', role: 'form'} do |f|
       - if @user.errors.any?

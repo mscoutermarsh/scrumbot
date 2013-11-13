@@ -11,7 +11,7 @@ class CallbacksController < ApplicationController
     integration = current_user.create_or_update_github_account!(username, github.oauth_token)
     
     if integration
-      redirect_to after_signup_path(:link_google),
+      redirect_to after_signup_path(:complete),
         success: "Github connected successfully!"
     else
       redirect_to after_signup_path(:link_github),
