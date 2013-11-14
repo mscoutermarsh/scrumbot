@@ -1,0 +1,12 @@
+tr
+  td
+    h1
+      ' Commits
+- @commits.each do |event|
+  tr
+    td 
+      = event['title']
+    td
+      = event['repo_name']
+    td
+      = DateTime.parse(event['time']).in_time_zone(@user.time_zone).strftime("%l:%M %p")

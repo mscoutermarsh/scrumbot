@@ -22,4 +22,13 @@ module GithubHelper
     Github.new oauth_token: token
   end
 
+  module ClassMethods
+    def parse_github_events(events)
+      pull_requests = events.select { |e| e['type'] == 'Pull Request' }
+      commits = events.select { |e| e['type'] == 'Commit' }
+
+      [pull_requests, commits]
+    end
+  end
+
 end

@@ -9,6 +9,8 @@ class MorningMailer < ActionMailer::Base
 
     @events = JSON.parse(@user.integrations.github.todays_events)
 
+    @pull_requests, @commits = Integration.parse_github_events(@events)
+
     subject = "What you got done yesterday (#{time.yesterday.strftime("%a, %b %d")})"
     mail(to: @user.email, subject: subject)
   end
