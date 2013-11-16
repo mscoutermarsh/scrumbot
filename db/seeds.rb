@@ -1,1 +1,1 @@
-accounts = Account.create([{name: 'Github'}, {name: 'Google'}])
+accounts = Account.create([{name: 'Github'}, {name: 'Google'}, {name: 'Twitter'}])

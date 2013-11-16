@@ -5,9 +5,10 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.1'
 
-# Use postgresql as the database for Active Record
-gem 'pg'
+gem 'puma'
 
+# DB
+gem 'pg'
 gem 'redis'
 gem 'nest'
 gem 'redis-rails'
@@ -29,7 +30,6 @@ gem 'multimap'
 gem 'rest-client'
 gem 'zip'
 gem 'wicked'
-gem 'coveralls', require: false
 gem 'rails_12factor', group: :production
 gem 'unf'
 
@@ -61,11 +61,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
+  gem 'coveralls', require: false
   gem 'excon'
   gem 'better_errors'
   gem 'rspec-sidekiq'
@@ -81,6 +81,7 @@ group :development, :test do
   gem 'listen'
   gem 'growl'
   gem 'fuubar'
+  gem 'debugger', group: [:development, :test]
 end
 
 group :test do
@@ -93,8 +94,3 @@ group :test do
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
-
-gem 'puma'
-
-# Use debugger
-gem 'debugger', group: [:development, :test]
