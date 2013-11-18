@@ -24,8 +24,6 @@ gem 'slim-rails'
 gem 'fog'
 gem 'sidekiq'
 gem 'sinatra'
-gem 'omniauth-google-oauth2'
-gem 'github_api'
 gem 'multimap'
 gem 'rest-client'
 gem 'zip'
@@ -35,6 +33,11 @@ gem 'unf'
 
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
+
+# Integrations
+gem 'twitter'
+gem 'omniauth-google-oauth2'
+gem 'github_api'
 
 
 
