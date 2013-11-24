@@ -6,8 +6,7 @@
       ' |
       a href="https://github.com/mscoutermarsh/scrumlogs"
         ' Github
-      - if user_signed_in?
-        ' |
-        =link_to destroy_user_session_path, method: :delete
-          span.glyphicon.glyphicon-remove-circle
-          ' Logout
+      ' |
+      =link_to destroy_user_session_path, method: :delete
+        span.glyphicon.glyphicon-remove-circle
+        ' Logout
