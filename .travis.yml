@@ -9,3 +9,5 @@ script:
   - bundle exec rspec spec --format Fuubar --color
 addons:
   postgresql: "9.3"
+services:
+  - redis-server
