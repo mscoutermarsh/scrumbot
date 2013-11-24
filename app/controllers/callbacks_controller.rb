@@ -19,6 +19,9 @@ class CallbacksController < ApplicationController
     end
   end
 
+  def twitter
+  end
+
   def google
   end
 

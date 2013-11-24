@@ -11,8 +11,10 @@ Scrumlogs::Application.routes.draw do
 
   get 'auth/github' => 'integrations#github', as: :connect_github
   get 'auth/google' => 'integrations#google', as: :connect_google
+  get 'auth/twitter' => 'integrations#twitter', as: :connect_twitter
 
   get 'auth/github/callback' => 'callbacks#github', as: :callback_github
+  get 'auth/twitter/callback' => 'callbacks#twitter', as: :callback_twitter
 
   get '/no_more_emails/:token' => 'users#unsubscribe', as: 'unsubscribe'
 
