@@ -4,7 +4,8 @@ rvm:
 env:
   - DB=postgresql
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - RAILS_ENV=test bundle exec rake --trace db:setup
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rspec spec --format Fuubar --color
 addons:
   postgresql: "9.3"

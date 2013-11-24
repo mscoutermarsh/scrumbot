@@ -14,7 +14,7 @@ Scrumlogs::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.cache_store = :redis_store, "#{ENV["REDISTOGO_URL"]}/1"
+  config.cache_store = :redis_store, "#{ENV["REDISTOGO_URL"]}/1/cache", { expires_in: 24.hours }
   config.action_dispatch.rack_cache = {
       metastore:   "#{ENV["REDISTOGO_URL"]}/1/metastore",
       entitystore: "#{ENV["REDISTOGO_URL"]}/1/entitystore"

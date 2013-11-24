@@ -8,4 +8,5 @@
       - if user_signed_in?
         = render 'welcome_back'
       - else
-        = render 'get_started'
+        - cache 'get_started' do
+          = render 'get_started'

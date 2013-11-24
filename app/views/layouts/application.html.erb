@@ -20,7 +20,9 @@
       </div>
     </div>
     <!-- /content -->
-    <%= render "layouts/footer" %>
+    <% cache 'footer' do %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </div>
   
 </body>
