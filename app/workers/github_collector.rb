@@ -15,7 +15,6 @@ class GithubCollector < DataCollector
       processed_events = processed_events | event if event
     end
 
-    debugger
     tweet_events if processed_events.count > 0
     return processed_events
   end
