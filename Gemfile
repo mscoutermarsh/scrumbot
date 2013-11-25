@@ -35,8 +35,9 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
 # Integrations
-gem 'twitter'
+gem 'twitter', '5.0.0.rc.1'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 gem 'github_api'
 
 

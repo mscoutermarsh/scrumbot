@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103173549) do
+ActiveRecord::Schema.define(version: 20131124221916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20131103173549) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_username"
+    t.string   "encrypted_secret"
   end
 
   add_index "integrations", ["user_id", "account_id"], name: "index_integrations_on_user_id_and_account_id", using: :btree

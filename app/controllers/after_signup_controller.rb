@@ -3,7 +3,7 @@ class AfterSignupController < ApplicationController
 
   before_filter :authenticate_user!
 
-  steps :basic_settings, :link_github, :complete
+  steps :basic_settings, :link_github, :link_twitter, :complete
 
   def show
     @user = current_user 

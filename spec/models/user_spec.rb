@@ -8,6 +8,7 @@ describe User do
     it { should validate_presence_of :password }
     it { should ensure_length_of(:password).is_at_least(6) }
     it { should ensure_inclusion_of(:skip_weekends).in_array(['true','false']) }
+    it { should ensure_inclusion_of(:tweet).in_array(['true','false']) }
     
     it { should allow_value(true).for(:active) }
     it { should allow_value(false).for(:active) }
@@ -86,12 +87,30 @@ describe User do
       expect(@user.integrations.count).to eql 1
     end
 
-    it 'sets correct account' do
+    it 'sets correct attributes' do
       expect(@user.integrations.first.account.name).to eql 'Github'
+      expect(@user.integrations.first.token).to eql 'abc123'
+      expect(@user.integrations.first.token).to eql 'abc123'
     end
 
-    it 'sets correct token' do
-      expect(@user.integrations.first.token).to eql 'abc123'
+  end
+
+  describe '#create_or_update_twitter_account!' do
+    before(:each) do
+      @user = FactoryGirl.create(:user) 
+      account = Account.find_by_name('Twitter')
+      @user.create_or_update_twitter_account!('mscccc','capitals','abc123')
+    end
+
+    it 'creates new twitter integration' do 
+      expect(@user.integrations.count).to eql 1
+    end
+
+    it 'sets correct attributes' do
+      expect(@user.integrations.first.account.name).to eql 'Twitter'
+      expect(@user.integrations.first.token).to eql 'capitals'
+      expect(@user.integrations.first.username).to eql 'mscccc'
+      expect(@user.integrations.first.secret).to eql 'abc123'
     end
   end
 

@@ -6,12 +6,17 @@ class GithubCollector < DataCollector
     @github_api = integration.github_login
     @username = integration.username
 
+    @commit_count = 0
+    @pull_request_count = 0
+
     processed_events = []
     github_events.each do |e|
       event = process_event(e)
       processed_events = processed_events | event if event
     end
 
+    debugger
+    tweet_events if processed_events.count > 0
     return processed_events
   end
 
@@ -70,8 +75,10 @@ class GithubCollector < DataCollector
   def process_event(event)
     case event[:type]
     when "PullRequestEvent"
+      @pull_request_count += 1
       return [pull_request_event(event)]
     when "PushEvent"
+      @commit_count += 1
       return push_event(event)
     end
   end
@@ -80,6 +87,19 @@ class GithubCollector < DataCollector
     event_time = DateTime.parse(event.created_at).in_time_zone(@user.time_zone)
 
     (@user.current_time.to_date - 1.day) <= event_time.to_date
+  end
+
+  # Yesterday, on @github. I submitted 27 commits and 2 pull requests. via scrumlogs.com
+  def tweet_events
+    return false unless @user.tweet?
+
+    msg = []
+
+    msg << "#{@commit_count} #{'commit'.pluralize(@commit_count)}" if @commit_count > 0
+    msg << "#{@pull_request_count} pull #{'request'.pluralize(@pull_request_count)}" if @pull_request_count > 0
+
+    tweet = "Yesterday, on @github, I submitted #{msg.join(' and ')}. via: scrumlogs.com"
+    SendTweet.perform_in(8.hours, @user.id, tweet)
   end
 
   def integration
