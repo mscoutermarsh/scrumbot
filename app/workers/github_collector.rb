@@ -99,6 +99,8 @@ class GithubCollector < DataCollector
 
     tweet = "Yesterday, on @github, I submitted #{msg.join(' and ')}. via: scrumlogs.com"
     SendTweet.perform_in(8.hours, @user.id, tweet)
+
+    return true
   end
 
   def integration
