@@ -2,10 +2,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  store_accessor :settings, :skip_weekends
+  store_accessor :settings, :skip_weekends, :tweet
 
   validates :email, uniqueness: true
   validates :skip_weekends, inclusion: { in: ['true', 'false'], message: "must be true or false" }
+  validates :tweet, inclusion: { in: ['true', 'false'], message: "must be true or false" }
+
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map { |m| m.name }, message: "is not a valid Time Zone"
   validates_inclusion_of :admin, in: [true, false], message: "must be true or false"
   validates_inclusion_of :active, in: [true, false], message: "must be true or false"
@@ -22,6 +24,13 @@ class User < ActiveRecord::Base
     account = Account.find_by_name('Github')
     integration = integrations.find_or_create_by(account: account)
     integration.update_attributes(token: token, username: username)
+  end
+
+  def create_or_update_twitter_account!(username, token, secret)
+    account = Account.find_by_name('Twitter')
+    integration = integrations.find_or_create_by(account: account)
+
+    integration.update_attributes(token: token, secret: secret, username: username)
   end
 
   def todays_events
@@ -53,6 +62,10 @@ class User < ActiveRecord::Base
 
   def skip_weekends?
     skip_weekends == "true" ? true : false
+  end
+
+  def tweet?
+    tweet == "true" ? true : false
   end
 
   def unsubscribe_token

@@ -6,5 +6,6 @@ FactoryGirl.define do
     password    'c@pitals'
     skip_weekends 'true'
     time_zone     'Eastern Time (US & Canada)'
+    tweet         'false'
   end
 end

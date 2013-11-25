@@ -2,3 +2,5 @@ github:
   name: "Github"
 google:
   name: "Google"
+twitter:
+  name: "Twitter"
