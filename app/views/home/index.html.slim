@@ -2,9 +2,9 @@
   .container
     .col-md-12.text-centered
       h1
-        ' scrumlogs
+        ' scrumbot
       h2
-        ' a daily email of what you got done yesterday
+        ' a friendly robot that reminds you what you did yesterday.
       - if user_signed_in?
         = render 'welcome_back'
       - else

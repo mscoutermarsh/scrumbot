@@ -88,7 +88,7 @@ class GithubCollector < DataCollector
     (@user.current_time.to_date - 1.day) <= event_time.to_date
   end
 
-  # Yesterday, on @github. I submitted 27 commits and 2 pull requests. via scrumlogs.com
+  # Yesterday, on @github. I submitted 27 commits and 2 pull requests. via scrumbot.io
   def tweet_events
     return false unless @user.tweet?
 
@@ -97,7 +97,7 @@ class GithubCollector < DataCollector
     msg << "#{@commit_count} #{'commit'.pluralize(@commit_count)}" if @commit_count > 0
     msg << "#{@pull_request_count} pull #{'request'.pluralize(@pull_request_count)}" if @pull_request_count > 0
 
-    tweet = "Yesterday, on @github, I submitted #{msg.join(' and ')}. via: scrumlogs.com"
+    tweet = "Yesterday, on @github, I submitted #{msg.join(' and ')}. via: scrumbot.io"
     SendTweet.perform_in(8.hours, @user.id, tweet)
   end
 

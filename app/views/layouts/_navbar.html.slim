@@ -4,13 +4,13 @@ nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
     span.icon-bar
     span.icon-bar
     span.icon-bar
-  = link_to "ScrumLogs", root_path, {class: "navbar-brand"}
+  = link_to "ScrumBot", root_path, {class: "navbar-brand"}
   .collapse.navbar-collapse.navbar-ex1-collapse
     ul.nav.navbar-nav
       li
         = link_to "FAQ", faq_path
       li
-        = link_to "Fork me", "https://github.com/mscoutermarsh/scrumlogs"
+        = link_to "Fork me", "https://github.com/mscoutermarsh/scrumbot"
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         li
