@@ -4,10 +4,12 @@ class Integration < ActiveRecord::Base
   validates :token, presence: true
   validates_uniqueness_of :user_id, :scope => [:account_id]
 
-  attr_encrypted :token, :username, key: :encryption_key
+  attr_encrypted :token, :username, :secret, key: :encryption_key
 
   belongs_to :user
   belongs_to :account
+
+  scope :twitter, -> { where(account: Account.find_by_name('Twitter')).first }
 
   include GithubHelper
   include Encryptable
