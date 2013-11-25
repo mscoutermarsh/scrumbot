@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
   validates :skip_weekends, inclusion: { in: ['true', 'false'], message: "must be true or false" }
-  validates :tweet, inclusion: { in: ['true', 'false'], message: "must be true or false" }
+  # validates :tweet, inclusion: { in: ['true', 'false'], message: "must be true or false" }
 
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map { |m| m.name }, message: "is not a valid Time Zone"
   validates_inclusion_of :admin, in: [true, false], message: "must be true or false"
