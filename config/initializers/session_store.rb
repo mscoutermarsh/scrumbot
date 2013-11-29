@@ -1,1 +1,1 @@
-Scrumlogs::Application.config.session_store :cookie_store, key: '_scrumlogs_session'
+Scrumlogs::Application.config.session_store :cookie_store, key: '_scrumbot_session'
