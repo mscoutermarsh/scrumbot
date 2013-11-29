@@ -57,6 +57,18 @@ describe User do
     end
   end
 
+  describe '#tweet?' do
+    it 'returns false for default user' do
+      user = FactoryGirl.build(:user)
+      expect(user.tweet?).to eql false 
+    end
+
+    it 'returns true if setting on' do
+      user = FactoryGirl.build(:user, tweet: 'true')
+      expect(user.tweet?).to eql true 
+    end
+  end
+
   describe '#skip_weekends?' do
 
     before(:each) do

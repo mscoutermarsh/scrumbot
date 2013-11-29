@@ -247,6 +247,9 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-debugger (0.2.2)
+      debugger (~> 1.3)
+      pry (~> 0.9.10)
     puma (2.6.0)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
@@ -439,7 +442,6 @@ DEPENDENCIES
   coveralls
   cucumber-rails (= 1.3.0)
   database_cleaner!
-  debugger
   devise
   excon
   factory_girl_rails
@@ -461,6 +463,8 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   pg
+  pry
+  pry-debugger
   puma
   rails (~> 4.0.1)
   rails_12factor

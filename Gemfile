@@ -85,7 +85,8 @@ group :development, :test do
   gem 'listen'
   gem 'growl'
   gem 'fuubar'
-  gem 'debugger', group: [:development, :test]
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 group :test do

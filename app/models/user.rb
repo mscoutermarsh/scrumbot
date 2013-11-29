@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   store_accessor :settings, :skip_weekends, :tweet
 
   validates :email, uniqueness: true
-  validates :skip_weekends, inclusion: { in: ['true', 'false'], message: "must be true or false" }
-  # validates :tweet, inclusion: { in: ['true', 'false'], message: "must be true or false" }
+  validates :skip_weekends, inclusion: { in: ['true', true, 'false', false], message: "must be true or false" }
+  validates :tweet, inclusion: { in: ['true', true, 'false', false], message: "must be true or false" }
 
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map { |m| m.name }, message: "is not a valid Time Zone"
   validates_inclusion_of :admin, in: [true, false], message: "must be true or false"
@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
   end
 
   def set_default_settings!
+    self.tweet = 'false' if tweet.nil?
     self.skip_weekends = 'true' if skip_weekends.nil?
     self.time_zone ||= 'Eastern Time (US & Canada)'
   end
