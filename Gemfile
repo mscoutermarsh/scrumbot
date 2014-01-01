@@ -15,6 +15,7 @@ gem 'redis-rails'
 gem 'redis-rack-cache'
 
 gem 'rollbar'
+gem 'figaro'
 
 gem 'sidetiq'
 gem 'attr_encrypted'
