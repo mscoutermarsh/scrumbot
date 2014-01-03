@@ -33,11 +33,7 @@ class Scheduler
   end
 
   def midnight_zones
-    zones = []
-    time_zones.each do |tz|
-      zones << tz if Time.now.in_time_zone(tz).hour == 0
-    end
-    zones
+    time_zones.all.select{|tz| Time.now.in_time_zone(tz).hour == 0 }
   end
 
   def time_zones

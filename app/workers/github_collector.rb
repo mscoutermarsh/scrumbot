@@ -68,7 +68,7 @@ class GithubCollector < DataCollector
     event.payload.commits.each do |commit|
       commits << commit_event(event, commit)
     end
-    return commits
+    commits
   end
 
   def process_event(event)
@@ -90,7 +90,7 @@ class GithubCollector < DataCollector
 
   # Yesterday, on @github. I submitted 27 commits and 2 pull requests. @TheScrumBot
   def tweet_events
-    return false unless @user.tweet?
+    return false unless @user.tweet? && !user.integrations.twitter
 
     msg = []
 
