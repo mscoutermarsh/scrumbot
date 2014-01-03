@@ -90,7 +90,7 @@ class GithubCollector < DataCollector
 
   # Yesterday, on @github. I submitted 27 commits and 2 pull requests. @TheScrumBot
   def tweet_events
-    return false unless @user.tweet? && !user.integrations.twitter
+    return false unless @user.tweet? && !@user.integrations.twitter
 
     msg = []
 
